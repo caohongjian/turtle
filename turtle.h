@@ -10,7 +10,7 @@ class ITurtle{
 };
 
 void TurtlePaint(const char*file,int width,int height,
-std::functional<void(Turtle*turtle)>&runp);
+std::functional<void(ITurtle*turtle)>&runp);
 
 #endif
 
