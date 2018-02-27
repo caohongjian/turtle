@@ -3,19 +3,20 @@
 
 #include "bitmap.h"
 
-struct Point{
+struct Float2{
     float x,y;
 };
 
-class Rasterizer{
+class IRasterizer{
 public:
-    void BeginRaster(Bitmap*target);//开始光栅化
-    void EndRaster();//结束光栅化
-    void Begining(Point origin);//起点
-    void Ending(Point dest);//终点
-    void Segment(Point a,Point b);//画直线
-private:
-    Bitmap*m_target;
+	virtual void Begin(IBitmap*target, 
+		Float2 topLeft, Float2 extent) = 0;//开始光栅化
+
+	virtual void End() = 0;//结束光栅化
+
+	virtual void DrawBegining(Float2 origin) = 0;//起点
+	virtual void DrawEnding(Float2 dest) = 0;//终点
+	virtual void DrawSegment(Float2 beginning,Float2 ending) = 0;//直线
 };
 
 #endif

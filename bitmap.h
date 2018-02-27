@@ -1,11 +1,10 @@
 #ifndef _TURTLE_BITMAP_H_
 #define _TURTLE_BITMAP_H_
-class Bitmap{
+class IBitmap{
 public:
-    int Width();
-    int Height();
-    void SetPixel(int x,int y,float rgba[4]);
-private:
-    
+	virtual int GetWidth() = 0;
+	virtual int GetHeight() = 0;
+	virtual void SetPixel(int x,int y,float rgba[4]) = 0;
 };
+
 #endif
