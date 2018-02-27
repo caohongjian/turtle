@@ -3,3 +3,11 @@
 ################################################################################
 
 /.vs/turtle/v15/ipch/AutoPCH/17f5447f1a5f5d15/MAIN.ipch
+/.vs/turtle/v15/ipch/AutoPCH/4aefd5b28ceccbea/TURTLE.ipch
+/.vs/turtle/v15/ipch/AutoPCH/610521d2064ccf67/MAIN.ipch
+*.ipch
+*.db
+*.suo
+*.opendb
+*.json
+*.sqlite
