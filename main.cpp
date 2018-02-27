@@ -2,8 +2,8 @@
 
 int main()
 {
-    Turtle tree([](Turtle*turtle){
-        turtle->Forward(100);
-        turtle->Rotate(100);
+    TurtlePaint("test.bmp",64,64,[](ITurtle*turtle){
+        turtle->Forward(10);
+        turtle->Rotate(90);
     });
 }
