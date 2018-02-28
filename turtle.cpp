@@ -87,11 +87,11 @@ void Turtle::Forward(float length){
 }
 
 void Turtle::Rotate(float angle){
-	angle = angle * 3.1415926f / 180.f;
+	angle = angle * 3.1415926535f / 180.f;
 	float cosAngle = std::cosf(angle);
 	float sinAngle = std::sinf(angle);
 	m_direction = Float2{
-		m_direction.x*cosAngle - m_direction.y*sinAngle,
-		-m_direction.x*sinAngle + m_direction.y*cosAngle
+		m_direction.x*cosAngle + m_direction.y*sinAngle,
+		m_direction.x*sinAngle - m_direction.y*cosAngle
 	};
 }
