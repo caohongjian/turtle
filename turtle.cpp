@@ -13,6 +13,8 @@ struct Segment {
 class Turtle:public ITurtle
 {
 public:
+	void SetBeginning(Float2 beginning)override;
+	void SetDirection(Float2 direction)override;
 	void Forward(float length)override;
 	void Rotate(float angle)override;
 	const Float2&Beginning() { return m_beginning; }
@@ -21,7 +23,7 @@ public:
 private:
 	Float2 m_beginning;
 	Float2 m_ending;
-	Float2 m_direct;
+	Float2 m_direction;
 	std::list<Segment> m_path;
 };
 
@@ -65,12 +67,31 @@ void TurtlePaint(const char * file, int width, int height,
 	bitmap->SaveAsFile(file);
 }
 
-void Turtle::Forward(float length)
-{
-	
+
+void Turtle::SetBeginning(Float2 beginning) {
+	m_beginning = beginning;
+	m_ending = beginning;
 }
 
-void Turtle::Rotate(float angle)
-{
+void Turtle::SetDirection(Float2 direction) {
+	m_direction = Float2::Normalize(direction);
+}
 
+void Turtle::Forward(float length){
+	Segment segment;
+	segment.beginning = m_ending;
+	segment.ending = m_ending + m_direction * length;
+	m_ending = segment.ending;
+
+	m_path.push_back(segment);
+}
+
+void Turtle::Rotate(float angle){
+	angle = angle * 3.1415926f / 180.f;
+	float cosAngle = std::cosf(angle);
+	float sinAngle = std::sinf(angle);
+	m_direction = Float2{
+		m_direction.x*cosAngle - m_direction.y*sinAngle,
+		-m_direction.x*sinAngle + m_direction.y*cosAngle
+	};
 }

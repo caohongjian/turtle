@@ -1,12 +1,8 @@
 #ifndef _TURTLE_RASTERIZER_H_
 #define _TURTLE_RASTERIZER_H_
 
+#include "math.h"
 #include "bitmap.h"
-
-struct Float2{
-    float x,y;
-};
-
 class IRasterizer{
 public:
 	//
