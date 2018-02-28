@@ -3,6 +3,7 @@
 #include "rasterizer.h"
 
 #include <list>
+#include <cmath>
 
 struct Segment {
 	Float2 beginning;
@@ -32,7 +33,7 @@ void TurtlePaint(const char * file, int width, int height,
 	IRasterizer*rasiterizer = IRasterizer::New();
 	IBitmap*bitmap = IBitmap::New(width, height);
 
-	//计算包围盒
+	//evaluate bounding box of turtle path
 	auto beginning = turtle->Beginning();
 	auto ending = turtle->Ending();
 	auto path = turtle->Path();
@@ -45,7 +46,8 @@ void TurtlePaint(const char * file, int width, int height,
 		rightTop.x = std::fmaxf(rightTop.x, segment.ending.x);
 		rightTop.y = std::fmaxf(rightTop.y, segment.ending.y);
 	}
-	//
+
+	//render path to bitmap
 	Float2 center, extent;
 	center.x = (leftBottom.x + rightTop.x) / 2;
 	center.y = (leftBottom.y + rightTop.y) / 2;
@@ -58,7 +60,8 @@ void TurtlePaint(const char * file, int width, int height,
 		rasiterizer->DrawSegment(segment.beginning, segment.ending);
 	rasiterizer->DrawEnding(ending);
 	rasiterizer->End();
-	//保存为文件
+	
+	//save bitmap to file
 	bitmap->SaveAsFile(file);
 }
 
