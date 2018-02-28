@@ -3,13 +3,13 @@
 class Rasterizer :public IRasterizer{
 public:
 	void Begin(IBitmap*target,
-		Float2 center, Float2 extent)override;//¿ªÊ¼¹âÕ¤»¯
+		Float2 center, Float2 extent)override;//å¼€å§‹å…‰æ …åŒ–
 
-	void End()override;//½áÊø¹âÕ¤»¯
+	void End()override;//ç»“æŸå…‰æ …åŒ–
 
-	void DrawBeginning(Float2 beginning)override;//Æğµã
-	void DrawEnding(Float2 ending)override;//ÖÕµã
-	void DrawSegment(Float2 beginning, Float2 ending)override;//Ö±Ïß
+	void DrawBeginning(Float2 beginning)override;//èµ·ç‚¹
+	void DrawEnding(Float2 ending)override;//ç»ˆç‚¹
+	void DrawSegment(Float2 beginning, Float2 ending)override;//ç›´çº¿
 private:
 	IBitmap * m_target;
 };
