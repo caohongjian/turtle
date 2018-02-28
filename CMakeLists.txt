@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 2.8)
+
 project(turtle)
 
 set(SRCS 
@@ -7,5 +8,7 @@ set(SRCS
     turtle.cpp
     main.cpp
 )
+
+add_compile_options(-std=c++11)
 
 add_executable(turtle ${SRCS})
