@@ -2,38 +2,36 @@
 
 class Rasterizer :public IRasterizer{
 public:
-	void Begin(IBitmap*target,
-		Float2 center, Float2 extent)override;//开始光栅化
+	void Begin(IBitmap*target)override;//开始光栅化
 
 	void End()override;//结束光栅化
 
 	void DrawBeginning(Float2 beginning)override;//起点
 	void DrawEnding(Float2 ending)override;//终点
 	void DrawSegment(Float2 beginning, Float2 ending)override;//直线
+
 private:
 	IBitmap * m_target;
 };
 
-IRasterizer* IRasterizer::New(){
+IRasterizer* IRasterizer::Create(){
 	return new Rasterizer();
 }
 
-void Rasterizer::Begin(IBitmap * target, Float2 center, Float2 extent)
-{
+void Rasterizer::Begin(IBitmap * target){
+	m_target = target;
 }
 
-void Rasterizer::End()
-{
+void Rasterizer::End(){
+	m_target = nullptr;
 }
 
-void Rasterizer::DrawBeginning(Float2 beginning)
-{
+void Rasterizer::DrawBeginning(Float2 beginning){
 }
 
-void Rasterizer::DrawEnding(Float2 ending)
-{
+void Rasterizer::DrawEnding(Float2 ending){
 }
 
-void Rasterizer::DrawSegment(Float2 beginning, Float2 ending)
-{
+void Rasterizer::DrawSegment(Float2 beginning, Float2 ending){
+
 }

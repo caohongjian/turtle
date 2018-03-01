@@ -6,10 +6,9 @@
 class IRasterizer{
 public:
 	//
-	static IRasterizer*New();
+	static IRasterizer*Create();
 	//开始光栅化
-	virtual void Begin(IBitmap*target, 
-		Float2 center, Float2 extent) = 0;
+	virtual void Begin(IBitmap*target) = 0;
 	//结束光栅化
 	virtual void End() = 0;
 	//画起点	   

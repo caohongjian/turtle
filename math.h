@@ -10,10 +10,10 @@ public:
 	float x, y;
 };
 
-struct Mat3x2 {
+struct Mat3x3 {
 public:
-	static Mat3x2 Translate(Float2 translation);
-	static Mat3x2 Rotate(float angle);
-	static Mat3x2 Scale(Float2 scaling);
+	static Mat3x3 Translate(Float2 translation);
+	static Mat3x3 Rotate(float angle);
+	static Mat3x3 Scale(Float2 scaling);
 };
 #endif

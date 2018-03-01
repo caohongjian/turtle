@@ -32,8 +32,8 @@ void TurtlePaint(const char * file, int width, int height,
 	Turtle*turtle = new Turtle();
 	exec(turtle);
 
-	IRasterizer*rasiterizer = IRasterizer::New();
-	IBitmap*bitmap = IBitmap::New(width, height);
+	IRasterizer*rasiterizer = IRasterizer::Create();
+	IBitmap*bitmap = IBitmap::Create(width, height);
 
 	//evaluate bounding box of turtle path
 	auto beginning = turtle->Beginning();
@@ -56,7 +56,7 @@ void TurtlePaint(const char * file, int width, int height,
 	extent.x = (rightTop.x - leftBottom.x) / 2;
 	extent.x = (rightTop.y - leftBottom.y) / 2;
 
-	rasiterizer->Begin(bitmap, center, extent);
+	rasiterizer->Begin(bitmap);
 	rasiterizer->DrawBeginning(beginning);
 	for (auto&segment : path)
 		rasiterizer->DrawSegment(segment.beginning, segment.ending);
