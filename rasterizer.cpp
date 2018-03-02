@@ -8,7 +8,7 @@ public:
 
 	void DrawBeginning(Float2 beginning)override;//起点
 	void DrawEnding(Float2 ending)override;//终点
-	void DrawSegment(Float2 beginning, Float2 ending)override;//直线
+	void DrawSegment(Segment segment)override;//直线
 
 private:
 	IBitmap * m_target;
@@ -32,6 +32,6 @@ void Rasterizer::DrawBeginning(Float2 beginning){
 void Rasterizer::DrawEnding(Float2 ending){
 }
 
-void Rasterizer::DrawSegment(Float2 beginning, Float2 ending){
+void Rasterizer::DrawSegment(Segment segment){
 
 }

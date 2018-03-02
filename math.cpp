@@ -27,3 +27,11 @@ Float2 Float2::operator*(float other)const noexcept {
 		y*other
 	};
 }
+
+Float2 Normalize(const Float2&v){
+	float length = std::sqrtf(v.x*v.x + v.y*v.y);
+	return Float2{
+		v.x / length,
+		v.y / length
+	};
+}

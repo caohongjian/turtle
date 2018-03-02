@@ -16,8 +16,7 @@ public:
 	//画终点										 
 	virtual void DrawEnding(Float2 ending) = 0;
 	//画线段
-	virtual void DrawSegment(Float2 beginning,
-		Float2 ending) = 0;
+	virtual void DrawSegment(Segment segment) = 0;
 };
 
 
