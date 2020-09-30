@@ -3,11 +3,11 @@ cmake_minimum_required(VERSION 2.8)
 project(turtle)
 
 set(SRCS 
-	math.cpp
-    bitmap.cpp
-    rasterizer.cpp
-    turtle.cpp
-    main.cpp
+	src/math.cpp
+    src/bitmap.cpp
+    src/rasterizer.cpp
+    src/turtle.cpp
+    src/main.cpp
 )
 IF(UNIX)
 	add_compile_options(-std=c++11)
