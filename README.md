@@ -7,3 +7,16 @@
 1. 执行 lua 脚本，生成多边形
 2. 渲染图形
 3. 输出到图片
+
+## example
+
+```lua
+p = ctx.create_pen(); // 创建一个画笔
+
+t.move_to(10, 20); // 设置起点
+t.line_to(50, 60); // 连线
+
+ctx.render(t, "turtle.png", 640, 480); // 渲染并输出
+```
+
+## API
