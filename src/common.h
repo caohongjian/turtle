@@ -16,6 +16,14 @@ struct Vec2f {
   std::string to_string() const;
 };
 
+struct Vec3f {
+  float x, y, z;
+  Vec3f() : x(0), y(0), z(0) {}
+  Vec3f(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {}
+
+  std::string to_string() const;
+};
+
 struct Color4f {
   float r, g, b, a;
 };
